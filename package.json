@@ -1,25 +1,36 @@
 {
   "name": "npm-chatpilot",
-  "version": "1.0.4",
+  "version": "1.0.7",
   "type": "module",
-  "source": "./src/index.ts",
+  "source": "./src/index.tsx",
   "main": "./dist/index.js",
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "microbundle",
-    "dev": "microbundle watch",
+    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --css-modules true --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
+    "dev": "microbundle watch --jsx React.createElement --jsxFragment React.Fragment --css-modules true --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "microbundle": "^0.15.1"
+    "@tailwindcss/forms": "^0.5.9",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "autoprefixer": "^10.4.20",
+    "microbundle": "^0.15.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/leocodeio/npm-chatpilot.git"
   },
   "dependencies": {
+    "axios": "^1.7.9",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.4.0",
     "typescript": "^5.7.2"
   },
   "exports": {
@@ -31,6 +42,7 @@
   },
   "files": [
     "dist",
-    "src"
+    "src",
+    "src/styles.css"
   ]
 }
