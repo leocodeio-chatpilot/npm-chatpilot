@@ -71,23 +71,26 @@ export const ChatPilotBot = ({
   const styles = {
     container: {
       position: "fixed",
-      bottom: "1rem",
-      right: "1rem",
+      bottom: "2rem",
+      right: "2rem",
     },
     chatContainer: {
-      width: "24rem",
+      maxWidth: "20rem",
+      width: "100%",
       backgroundColor: "white",
-      borderRadius: "0.5rem",
-      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+      borderRadius: "0.75rem",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       overflow: "hidden",
+      zIndex: 50,
     },
     header: {
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      padding: "1rem",
+      padding: "0.75rem",
       backgroundColor: "white",
       borderBottom: "1px solid #e5e7eb",
+      position: "relative",
     },
     headerTitle: {
       display: "flex",
@@ -95,67 +98,70 @@ export const ChatPilotBot = ({
       gap: "0.5rem",
     },
     closeButton: {
-      padding: "0.5rem",
-      borderRadius: "9999px",
+      position: "absolute",
+      top: "-1.5rem",
+      right: "0.5rem",
+      cursor: "pointer",
+      transition: "transform 0.3s ease-in-out",
       ":hover": {
-        backgroundColor: "#f3f4f6",
+        transform: "scale(1.25)",
       },
     },
     messagesContainer: {
-      height: "24rem",
+      height: "20rem",
       overflowY: "auto",
       padding: "1rem",
     },
     messageWrapper: (isUser: boolean) => ({
-      marginBottom: "1rem",
+      marginBottom: "0.75rem",
       display: "flex",
       justifyContent: isUser ? "flex-end" : "flex-start",
     }),
     message: (isUser: boolean) => ({
-      maxWidth: "80%",
-      borderRadius: "0.5rem",
-      padding: "0.75rem",
-      backgroundColor: isUser ? "#3b82f6" : "#e5e7eb",
+      maxWidth: "75%",
+      borderRadius: "1rem",
+      padding: "0.75rem 1rem",
+      backgroundColor: isUser ? "#3b82f6" : "#f3f4f6",
       color: isUser ? "white" : "black",
     }),
-    inputContainer: {
-      padding: "1rem",
-      borderTop: "1px solid #e5e7eb",
+    noMessages: {
+      textAlign: "center",
+      color: "#9ca3af",
     },
-    inputWrapper: {
+    inputContainer: {
       display: "flex",
+      alignItems: "center",
       gap: "0.5rem",
+      padding: "0.5rem",
+      borderTop: "1px solid #e5e7eb",
     },
     input: {
       flexGrow: 1,
+      padding: "0.5rem",
       borderRadius: "0.5rem",
       border: "1px solid #e5e7eb",
-      padding: "0.5rem",
       outline: "none",
       ":focus": {
-        ring: "2px",
-        ringColor: "#3b82f6",
+        borderColor: "#3b82f6",
       },
     },
     sendButton: {
       backgroundColor: "#3b82f6",
       color: "white",
-      padding: "0.5rem",
+      padding: "0.5rem 1rem",
       borderRadius: "0.5rem",
       ":hover": {
         backgroundColor: "#2563eb",
       },
-      ":disabled": {
-        opacity: 0.5,
-      },
     },
     chatButton: {
-      backgroundColor: "#3b82f6",
+      backgroundColor: "#ef4444",
       color: "white",
-      padding: "1rem",
+      padding: "0.5rem",
       borderRadius: "9999px",
+      boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
       ":hover": {
-        backgroundColor: "#2563eb",
+        backgroundColor: "#dc2626",
       },
     },
   };
@@ -167,11 +173,11 @@ export const ChatPilotBot = ({
         <div className="chat-container">
           <div className="header">
             <div className="header-title">
-              <SiChatbot style={{ width: "1.5rem", height: "1.5rem" }} />
-              <span style={{ fontWeight: 600 }}>ChatPilot</span>
+              <SiChatbot className="chatbot-icon" />
+              <span className="header-title-text">ChatPilot</span>
             </div>
-            <button onClick={() => setIsOpen(false)} style={styles.closeButton}>
-              <GiCrossedBones style={{ width: "1.25rem", height: "1.25rem" }} />
+            <button onClick={() => setIsOpen(false)} className="close-button">
+              <GiCrossedBones className="close-icon" />
             </button>
           </div>
 
@@ -187,35 +193,35 @@ export const ChatPilotBot = ({
               </div>
             ))}
             {isLoading && (
-              <div style={styles.messageWrapper(false)}>
-                <div style={styles.message(false)}>Typing...</div>
+              <div className="message-wrapper">
+                <div className="message">Typing...</div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSendMessage} style={styles.inputContainer}>
-            <div style={styles.inputWrapper}>
+          <form onSubmit={handleSendMessage} className="input-container">
+            <div className="input-wrapper">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
-                style={styles.input}
+                className="input"
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                style={styles.sendButton}
+                className="send-button"
               >
-                <IoSendSharp style={{ width: "1.25rem", height: "1.25rem" }} />
+                <IoSendSharp className="send-icon" />
               </button>
             </div>
           </form>
         </div>
       ) : (
-        <button onClick={() => setIsOpen(true)} style={styles.chatButton}>
-          <SiChatbot style={{ width: "1.5rem", height: "1.5rem" }} />
+        <button onClick={() => setIsOpen(true)} className="chat-button">
+          <SiChatbot className="chat-icon" />
         </button>
       )}
     </div>
