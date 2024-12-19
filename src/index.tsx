@@ -1,10 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 import { SiChatbot } from "react-icons/si";
 import { GiCrossedBones } from "react-icons/gi";
 import { IoSendSharp } from "react-icons/io5";
 import { useEffect, useRef, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import './styles.css';
 
 export const Capitalize = ({ str }: { str: string }) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -15,10 +14,10 @@ interface Message {
   content: string;
 }
 
-export const ChatPilotBot = ({ 
+export const ChatPilotBot = ({
   apiKey,
-  apiUrl = "https://api.chatpilot.com" 
-}: { 
+  apiUrl = "https://api.chatpilot.com",
+}: {
   apiKey: string;
   apiUrl?: string;
 }) => {
@@ -58,7 +57,10 @@ export const ChatPilotBot = ({
       if (!response.ok) throw new Error("Failed to get response");
 
       const data = await response.json();
-      setMessages((prev) => [...prev, { role: "assistant", content: data.response }]);
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: data.response },
+      ]);
     } catch (error) {
       toast.error("Failed to get response");
     } finally {
@@ -66,78 +68,154 @@ export const ChatPilotBot = ({
     }
   };
 
+  const styles = {
+    container: {
+      position: "fixed",
+      bottom: "1rem",
+      right: "1rem",
+    },
+    chatContainer: {
+      width: "24rem",
+      backgroundColor: "white",
+      borderRadius: "0.5rem",
+      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+      overflow: "hidden",
+    },
+    header: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: "1rem",
+      backgroundColor: "white",
+      borderBottom: "1px solid #e5e7eb",
+    },
+    headerTitle: {
+      display: "flex",
+      alignItems: "center",
+      gap: "0.5rem",
+    },
+    closeButton: {
+      padding: "0.5rem",
+      borderRadius: "9999px",
+      ":hover": {
+        backgroundColor: "#f3f4f6",
+      },
+    },
+    messagesContainer: {
+      height: "24rem",
+      overflowY: "auto",
+      padding: "1rem",
+    },
+    messageWrapper: (isUser: boolean) => ({
+      marginBottom: "1rem",
+      display: "flex",
+      justifyContent: isUser ? "flex-end" : "flex-start",
+    }),
+    message: (isUser: boolean) => ({
+      maxWidth: "80%",
+      borderRadius: "0.5rem",
+      padding: "0.75rem",
+      backgroundColor: isUser ? "#3b82f6" : "#e5e7eb",
+      color: isUser ? "white" : "black",
+    }),
+    inputContainer: {
+      padding: "1rem",
+      borderTop: "1px solid #e5e7eb",
+    },
+    inputWrapper: {
+      display: "flex",
+      gap: "0.5rem",
+    },
+    input: {
+      flexGrow: 1,
+      borderRadius: "0.5rem",
+      border: "1px solid #e5e7eb",
+      padding: "0.5rem",
+      outline: "none",
+      ":focus": {
+        ring: "2px",
+        ringColor: "#3b82f6",
+      },
+    },
+    sendButton: {
+      backgroundColor: "#3b82f6",
+      color: "white",
+      padding: "0.5rem",
+      borderRadius: "0.5rem",
+      ":hover": {
+        backgroundColor: "#2563eb",
+      },
+      ":disabled": {
+        opacity: 0.5,
+      },
+    },
+    chatButton: {
+      backgroundColor: "#3b82f6",
+      color: "white",
+      padding: "1rem",
+      borderRadius: "9999px",
+      ":hover": {
+        backgroundColor: "#2563eb",
+      },
+    },
+  };
+
   return (
-    <div className="chatpilot-fixed chatpilot-bottom-4 chatpilot-right-4">
+    <div className="container">
       <Toaster position="top-right" />
       {isOpen ? (
-        <div className="chatpilot-container">
-          <div className="chatpilot-header">
-            <div className="chatpilot-flex chatpilot-items-center chatpilot-gap-2">
-              <SiChatbot className="chatpilot-w-6 chatpilot-h-6" />
-              <span className="chatpilot-font-semibold">ChatPilot</span>
+        <div className="chat-container">
+          <div className="header">
+            <div className="header-title">
+              <SiChatbot style={{ width: "1.5rem", height: "1.5rem" }} />
+              <span style={{ fontWeight: 600 }}>ChatPilot</span>
             </div>
-            <button 
-              onClick={() => setIsOpen(false)}
-              className="chatpilot-p-2 chatpilot-rounded-full hover:chatpilot-bg-gray-100"
-            >
-              <GiCrossedBones className="chatpilot-w-5 chatpilot-h-5" />
+            <button onClick={() => setIsOpen(false)} style={styles.closeButton}>
+              <GiCrossedBones style={{ width: "1.25rem", height: "1.25rem" }} />
             </button>
           </div>
-          
-          <div className="chatpilot-h-96 chatpilot-overflow-y-auto chatpilot-p-4">
+
+          <div className="messages-container">
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`chatpilot-mb-4 chatpilot-flex ${
-                  message.role === "user" ? "chatpilot-justify-end" : "chatpilot-justify-start"
-                }`}
+                style={styles.messageWrapper(message.role === "user")}
               >
-                <div
-                  className={`chatpilot-max-w-[80%] chatpilot-rounded-lg chatpilot-p-3 ${
-                    message.role === "user"
-                      ? "chatpilot-bg-blue-500 chatpilot-text-white"
-                      : "chatpilot-bg-gray-200"
-                  }`}
-                >
+                <div style={styles.message(message.role === "user")}>
                   {message.content}
                 </div>
               </div>
             ))}
             {isLoading && (
-              <div className="chatpilot-flex chatpilot-justify-start chatpilot-mb-4">
-                <div className="chatpilot-bg-gray-200 chatpilot-rounded-lg chatpilot-p-3">
-                  Typing...
-                </div>
+              <div style={styles.messageWrapper(false)}>
+                <div style={styles.message(false)}>Typing...</div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSendMessage} className="chatpilot-p-4 chatpilot-border-t">
-            <div className="chatpilot-flex chatpilot-gap-2">
+          <form onSubmit={handleSendMessage} style={styles.inputContainer}>
+            <div style={styles.inputWrapper}>
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="chatpilot-flex-1 chatpilot-rounded-lg chatpilot-border chatpilot-p-2 chatpilot-focus:outline-none chatpilot-focus:ring-2 chatpilot-focus:ring-blue-500"
+                style={styles.input}
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="chatpilot-bg-blue-500 chatpilot-text-white chatpilot-p-2 chatpilot-rounded-lg hover:chatpilot-bg-blue-600 chatpilot-transition-colors disabled:chatpilot-opacity-50"
+                style={styles.sendButton}
               >
-                <IoSendSharp className="chatpilot-w-5 chatpilot-h-5" />
+                <IoSendSharp style={{ width: "1.25rem", height: "1.25rem" }} />
               </button>
             </div>
           </form>
         </div>
       ) : (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="chatpilot-bg-blue-500 chatpilot-text-white chatpilot-p-4 chatpilot-rounded-full hover:chatpilot-bg-blue-600 chatpilot-transition-colors"
-        >
-          <SiChatbot className="chatpilot-w-6 chatpilot-h-6" />
+        <button onClick={() => setIsOpen(true)} style={styles.chatButton}>
+          <SiChatbot style={{ width: "1.5rem", height: "1.5rem" }} />
         </button>
       )}
     </div>

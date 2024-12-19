@@ -1,6 +1,6 @@
 {
   "name": "npm-chatpilot",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "type": "module",
   "source": "./src/index.tsx",
   "main": "./dist/index.js",
@@ -8,8 +8,8 @@
   "unpkg": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --css-modules true --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
-    "dev": "microbundle watch --jsx React.createElement --jsxFragment React.Fragment --css-modules true --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
+    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
+    "dev": "microbundle watch --jsx React.createElement --jsxFragment React.Fragment --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
     "start": "node dist/index.js"
   },
   "devDependencies": {
