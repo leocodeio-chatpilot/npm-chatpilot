@@ -164,24 +164,37 @@ export const ChatPilotBot = ({
         backgroundColor: "#dc2626",
       },
     },
+    chatbotIcon: {
+      width: "1.5rem",
+      height: "1.5rem",
+    },
+    inputWrapper: {
+      display: "flex",
+      alignItems: "center",
+      gap: "0.5rem",
+      padding: "0.5rem",
+      borderTop: "1px solid #e5e7eb",
+    },
   };
 
   return (
-    <div className="container">
+    <div style={styles.container as React.CSSProperties}>
       <Toaster position="top-right" />
       {isOpen ? (
-        <div className="chat-container">
-          <div className="header">
-            <div className="header-title">
-              <SiChatbot className="chatbot-icon" />
+        <div style={styles.chatContainer as React.CSSProperties}>
+          <div style={styles.header as React.CSSProperties}>
+            <div style={styles.headerTitle as React.CSSProperties}>
+              <SiChatbot style={styles.chatbotIcon as React.CSSProperties} />
               <span className="header-title-text">ChatPilot</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="close-button">
-              <GiCrossedBones className="close-icon" />
+              <GiCrossedBones
+                style={styles.closeButton as React.CSSProperties}
+              />
             </button>
           </div>
 
-          <div className="messages-container">
+          <div style={styles.messagesContainer as React.CSSProperties}>
             {messages.map((message, index) => (
               <div
                 key={index}
@@ -193,35 +206,38 @@ export const ChatPilotBot = ({
               </div>
             ))}
             {isLoading && (
-              <div className="message-wrapper">
-                <div className="message">Typing...</div>
+              <div style={styles.messageWrapper(false)}>
+                <div style={styles.message(false)}>Typing...</div>
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
 
-          <form onSubmit={handleSendMessage} className="input-container">
-            <div className="input-wrapper">
+          <form
+            onSubmit={handleSendMessage}
+            style={styles.inputContainer as React.CSSProperties}
+          >
+            <div style={styles.inputWrapper as React.CSSProperties}>
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
-                className="input"
+                style={styles.input as React.CSSProperties}
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="send-button"
+                style={styles.sendButton as React.CSSProperties}
               >
-                <IoSendSharp className="send-icon" />
+                <IoSendSharp style={styles.sendButton as React.CSSProperties} />
               </button>
             </div>
           </form>
         </div>
       ) : (
         <button onClick={() => setIsOpen(true)} className="chat-button">
-          <SiChatbot className="chat-icon" />
+          <SiChatbot style={styles.chatbotIcon as React.CSSProperties} />
         </button>
       )}
     </div>
