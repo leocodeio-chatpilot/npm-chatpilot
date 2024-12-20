@@ -17,8 +17,10 @@ interface Message {
 export const ChatPilotBot = ({
   apiKey,
   apiUrl = "https://api.chatpilot.com",
+  xApiKey,
 }: {
   apiKey: string;
+  xApiKey: string;
   apiUrl?: string;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,9 +51,12 @@ export const ChatPilotBot = ({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${xApiKey}`,
         },
-        body: JSON.stringify({ messages: [...messages, newMessage] }),
+        body: JSON.stringify({
+          queryInput: inputMessage,
+          apiKey: apiKey,
+        }),
       });
 
       if (!response.ok) throw new Error("Failed to get response");
