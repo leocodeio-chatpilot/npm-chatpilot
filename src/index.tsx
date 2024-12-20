@@ -54,7 +54,7 @@ export const ChatPilotBot = ({
           "x-api-key": xApiKey,
         },
         body: JSON.stringify({
-          queryInput: inputMessage,
+          queryText: inputMessage,
           apiKey: apiKey,
         }),
       });
