@@ -73,10 +73,11 @@ export const ChatPilotBot = ({
       position: "fixed",
       bottom: "2rem",
       right: "2rem",
+      zIndex: 50,
     },
     chatContainer: {
-      maxWidth: "20rem",
-      width: "100%",
+      maxWidth: "25rem",
+      maxHeight: "35rem",
       backgroundColor: "white",
       borderRadius: "0.75rem",
       boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -86,21 +87,10 @@ export const ChatPilotBot = ({
     header: {
       display: "flex",
       alignItems: "center",
-      justifyContent: "space-between",
+      justifyContent: "end",
       padding: "0.75rem",
-      backgroundColor: "white",
-      borderBottom: "1px solid #e5e7eb",
-      position: "relative",
-    },
-    headerTitle: {
-      display: "flex",
-      alignItems: "center",
-      gap: "0.5rem",
     },
     closeButton: {
-      position: "absolute",
-      top: "-1.5rem",
-      right: "0.5rem",
       cursor: "pointer",
       transition: "transform 0.3s ease-in-out",
       ":hover": {
@@ -137,7 +127,7 @@ export const ChatPilotBot = ({
     },
     input: {
       flexGrow: 1,
-      padding: "0.5rem",
+      padding: "0.75rem",
       borderRadius: "0.5rem",
       border: "1px solid #e5e7eb",
       outline: "none",
@@ -148,7 +138,6 @@ export const ChatPilotBot = ({
     sendButton: {
       backgroundColor: "#3b82f6",
       color: "white",
-      padding: "0.5rem 1rem",
       borderRadius: "0.5rem",
       ":hover": {
         backgroundColor: "#2563eb",
@@ -183,10 +172,6 @@ export const ChatPilotBot = ({
       {isOpen ? (
         <div style={styles.chatContainer as React.CSSProperties}>
           <div style={styles.header as React.CSSProperties}>
-            <div style={styles.headerTitle as React.CSSProperties}>
-              <SiChatbot style={styles.chatbotIcon as React.CSSProperties} />
-              <span className="header-title-text">ChatPilot</span>
-            </div>
             <button onClick={() => setIsOpen(false)} className="close-button">
               <GiCrossedBones
                 style={styles.closeButton as React.CSSProperties}
