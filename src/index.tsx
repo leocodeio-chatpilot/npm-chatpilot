@@ -51,7 +51,7 @@ export const ChatPilotBot = ({
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${xApiKey}`,
+          "x-api-key": `Bearer ${xApiKey}`,
         },
         body: JSON.stringify({
           queryInput: inputMessage,
