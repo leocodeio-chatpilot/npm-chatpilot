@@ -13,13 +13,10 @@
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.9",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
-    "microbundle": "^0.15.1",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.16"
+    "microbundle": "^0.15.1"
   },
   "repository": {
     "type": "git",
@@ -42,7 +39,6 @@
   },
   "files": [
     "dist",
-    "src",
-    "src/styles.css"
+    "src"
   ]
 }
