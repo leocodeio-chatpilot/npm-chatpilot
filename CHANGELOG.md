@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.0.6...v1.0.7) (2025-04-30)
+
+
+### Performance Improvements
+
+* **up publisjh:** up publisjh ([cca4823](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/cca48238c9e59a9eac489d93f5c0618853bd9e04))
+
 ## [1.0.6](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.0.5...v1.0.6) (2025-04-30)
 
 
