@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.0.5...v1.0.6) (2025-04-30)
+
+
+### Performance Improvements
+
+* **gir repo:** gir repo ([f9079c9](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/f9079c96ff34de07aa23680a98e5c8a70784b1ae))
+
 ## [1.0.5](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.0.4...v1.0.5) (2025-04-30)
 
 
