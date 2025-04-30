@@ -1,6 +1,6 @@
 {
   "name": "npm-chatpilot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "source": "./src/index.tsx",
   "main": "./dist/index.js",
