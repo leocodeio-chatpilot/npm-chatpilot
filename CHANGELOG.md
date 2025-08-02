@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.4...v1.2.5) (2025-08-02)
+
+
+### Performance Improvements
+
+* **small change:** small change ([0853349](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/08533491b40efcc80951af4923d7c2f5dd2aec6b))
+
 ## [1.2.4](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.3...v1.2.4) (2025-08-02)
 
 
