@@ -1,5 +1,5 @@
 {
-  "name": "@leocodeio-chatpilot/npm-chatpilot",
+  "name": "@leocodeio/npm-chatpilot",
   "version": "1.2.2",
   "type": "module",
   "source": "./src/index.tsx",
