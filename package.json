@@ -7,10 +7,7 @@
   "module": "./dist/index.module.js",
   "unpkg": "./dist/index.umd.js",
   "types": "./dist/index.d.ts",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
-  },
+
   "scripts": {
     "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
     "dev": "microbundle watch --jsx React.createElement --jsxFragment React.Fragment --globals react-icons/si=ReactIconsSi,react-icons/gi=ReactIconsGi,react-icons/io5=ReactIconsIo5",
