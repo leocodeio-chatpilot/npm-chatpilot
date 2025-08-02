@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.0...v1.2.1) (2025-08-02)
+
+
+### Performance Improvements
+
+* **trying to publish:** trying to publish ([24b3696](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/24b36967ca18570d046315d4f454868ca9096ad8))
+
 # [1.2.0](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.1.0...v1.2.0) (2025-08-02)
 
 
