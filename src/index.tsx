@@ -46,7 +46,7 @@ export const ChatPilotBot = ({
     setIsLoading(true);
 
     try {
-      const response = await fetch(`https:chatpilot.leocode.tech/action+/npm+/prompt`, {
+      const response = await fetch(`https:chatpilot.leocode.tech/action/npm/prompt`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
