@@ -90,3 +90,4 @@ MIT
 ## API Endpoint
 
 The component communicates with the ChatPilot API at `https://chatpilot.leocode.tech/action+/npm+/prompt`
+
