@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.1...v1.2.2) (2025-08-02)
+
+
+### Performance Improvements
+
+* **updated to only have commands prev:** updated to only have commands prev ([69b64ce](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/69b64ce8a49c2371a41f889f37bceccaab96f56b))
+
 ## [1.2.1](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.0...v1.2.1) (2025-08-02)
 
 
