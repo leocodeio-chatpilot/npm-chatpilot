@@ -1,3 +1,11 @@
+## [1.2.6](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.5...v1.2.6) (2025-08-02)
+
+
+### Performance Improvements
+
+* **fixed response:** fixed response ([1fb7e53](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/1fb7e536132cc72f8855216032af65c4fb5e3e36))
+* **update version:** update version ([a73f140](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/a73f14060c0449e6aa7457bc206dc50f01f0b74b))
+
 ## [1.2.5](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.4...v1.2.5) (2025-08-02)
 
 
