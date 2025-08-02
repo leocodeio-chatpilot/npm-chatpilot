@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
-          scope: "@leocodeio-chatpilot"
+          scope: "@leocodeio"
 
       - name: Install dependencies
         run: npm install
@@ -51,7 +51,7 @@ jobs:
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
-          scope: "@leocodeio-chatpilot"
+          scope: "@leocodeio"
 
       - name: Download build artifacts
         uses: actions/download-artifact@v4
