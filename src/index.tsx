@@ -63,7 +63,7 @@ export const ChatPilotBot = ({
       const data = await response.json();
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: data.payload.response },
+        { role: "assistant", content: data.data.payload.response },
       ]);
     } catch (error) {
       toast.error("Failed to get response");
