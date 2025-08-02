@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.0.8...v1.1.0) (2025-08-02)
+
+
+### Features
+
+* **revise:** revise ([fe0ec28](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/fe0ec287673b7a2224d399139666bd32cba929dd))
+
 ## [1.0.8](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.0.7...v1.0.8) (2025-04-30)
 
 
