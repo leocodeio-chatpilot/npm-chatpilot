@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.3...v1.2.4) (2025-08-02)
+
+
+### Performance Improvements
+
+* **shift to npm:** shift to npm ([d7b7668](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/d7b7668f54ace184ff24397f08a7f3532c885eb7))
+
 ## [1.2.3](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.2...v1.2.3) (2025-08-02)
 
 
