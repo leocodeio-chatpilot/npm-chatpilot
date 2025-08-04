@@ -1,6 +1,6 @@
 {
   "name": "@leocodeio/npm-chatpilot",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "type": "module",
   "source": "./src/index.tsx",
   "main": "./dist/index.js",

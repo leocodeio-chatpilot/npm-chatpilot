@@ -1,3 +1,10 @@
+## [1.2.8](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.7...v1.2.8) (2025-08-04)
+
+
+### Performance Improvements
+
+* **fixed url to fetch on:** fixed url to fetch on ([c6cfed3](https://github.com/leocodeio-chatpilot/npm-chatpilot/commit/c6cfed3bbc9088b803c85cde64e882549e176667))
+
 ## [1.2.7](https://github.com/leocodeio-chatpilot/npm-chatpilot/compare/v1.2.6...v1.2.7) (2025-08-02)
 
 
